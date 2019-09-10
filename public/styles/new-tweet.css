@@ -1,0 +1,31 @@
+textarea {
+  background-color: #f4f1ec;
+  border: none;
+  width: 100%;
+  border-bottom: 2px solid #545149;
+  height:2em;
+  resize: none;
+  
+}
+
+section span {
+  font-weight: bold; 
+  float:right;
+  font-family: 'Bungee', 'sans serif';
+
+}
+
+textarea::-webkit-input-placeholder {
+  font-weight: bold;
+}
+
+.button {
+  background-color: #133491;
+  color: white;
+  border: none;
+  font-family: 'Bungee', 'sans serif';
+}
+
+textarea:focus{
+  outline: none;
+}
