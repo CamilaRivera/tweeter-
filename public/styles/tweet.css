@@ -2,6 +2,7 @@
   border: 2px solid #545149;
   height: 20%;
   width: 100%;
+  padding: 0.5rem;
   margin-top: 3.5rem;
   margin-bottom: 3.5rem;
 }
@@ -16,19 +17,14 @@
 
 .tweet footer {
   border-top: 2px solid #545149;
-  width: 98%;
-  margin-left: 1%;
-  
+  height: 4rem;
+  padding: 1rem;
 }
 
 .tweet h4{
   text-align: left;
 }
 
-.tweet p {
-  width: 98%;
-  margin-left: 1%;
-}
 
 i {
   margin-right: 5px;
@@ -38,25 +34,22 @@ i {
 .icons {
   margin: 0;
   text-align: right;
+  float: right;
 }
 
-.tweet footer p {
-  margin-top: 0;
-}
 
 .tweet header {
   text-align: left;
 }
 
 .tweet header p {
-  margin-top: 0;
+  margin-top: 0.5rem;
 }
 
 .tweet .nickname {
   color: rgba(63, 127, 191, 0.7);
-  margin-top: 1rem;
-  text-align: right;
-  margin-bottom: 0;
+  margin-right: 1rem;
+  margin-top: 2.3rem;
   float: right;
 }
 

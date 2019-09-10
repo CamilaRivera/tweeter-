@@ -12,7 +12,7 @@ textarea {
   
 }
 
-section span {
+section span.counter {
   font-weight: bold; 
   float:right;
   font-family: 'Bungee', 'sans serif';
