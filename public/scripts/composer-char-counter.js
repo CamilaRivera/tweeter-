@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-
+// function for counter in the new tweet 
   $('textarea').on('input', function (event) {
     let count = 140 - this.value.length;
     $('.counter').text(count);
@@ -11,14 +11,13 @@ jQuery(document).ready(function ($) {
     $('.error').slideUp();
   });
 
+  //back to top toggle button function
   $('.back-to-top').click(function() {
     $(window).scrollTop(0);
 
     });
-
+// check if the button is in the upper part of the page
     $(window).scroll(function() {
-      console.log('apareci');
-      console.log(document.body.scrollTop);
       if(window.scrollY < 400) {
           $(".back-to-top").fadeOut();
       } else {

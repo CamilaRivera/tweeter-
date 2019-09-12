@@ -22,15 +22,6 @@ body {
   justify-content: center;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
- /* Style the main element so it conforms to the following rules:
-
- It should be only 90% of the width of its parent element
- It should be center aligned to the body
- It should have the same colour background as the <body> element */
-
  main {
    width: 90%;
    margin-left: 5%;
