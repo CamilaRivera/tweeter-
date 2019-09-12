@@ -8,5 +8,23 @@ jQuery(document).ready(function ($) {
     } else {
       $('.counter').removeClass('redCounter');
     }
+    $('.error').slideUp();
+  });
+
+  $('.back-to-top').click(function() {
+    $(window).scrollTop(0);
+
+    });
+
+    $(window).scroll(function() {
+      console.log('apareci');
+      console.log(document.body.scrollTop);
+      if(window.scrollY < 400) {
+          $(".back-to-top").fadeOut();
+      } else {
+          $(".back-to-top").fadeIn();
+      }
   });
 });
+
+

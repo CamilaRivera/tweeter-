@@ -4,6 +4,7 @@
 }
 
 textarea {
+  margin-top: 40px;
   background-color: #f4f1ec;
   border: none;
   width: 100%;
@@ -43,4 +44,6 @@ textarea:focus{
   color: #D8000C;
   background-color: #FFBABA;
   display: none;
+  padding: 20px;
+  margin-bottom: 20px;
 }

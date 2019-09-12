@@ -29,6 +29,8 @@ jQuery(document).ready(function ($) {
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
   const renderTweets = function (tweets) {
+    console.log('inside render tweets');
+    console.log(tweets)
     let allTweets = [];
     $('.tweets').empty();
     for (const tweet in tweets) {
@@ -37,6 +39,7 @@ jQuery(document).ready(function ($) {
     allTweets.reverse();
     $('.tweets').append(allTweets);
     $('.tweet-text').val("");
+    $('.tweet-text').trigger("input");
   };
 
 
@@ -72,9 +75,7 @@ jQuery(document).ready(function ($) {
       $('.error').slideDown(); 
     } else  {
       $.ajax({ url: '/tweets', method: 'POST', data: $(this).serialize() })
-        .then(
-          loadTweets()
-        )
+        .then(loadTweets)
         .fail(err => {
           alert('Failed to submit tweet', err);
         });
@@ -82,6 +83,7 @@ jQuery(document).ready(function ($) {
   });
 
   const loadTweets = () => {
+    console.log('loading');
     $.ajax({ url: '/tweets', method: 'GET' })
       .then(renderTweets);
   }
