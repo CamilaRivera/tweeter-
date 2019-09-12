@@ -1,8 +1,3 @@
-/* The header should have a height of 400px and be 100% the width of it's parent container
-The avatar should be centered vertically and horizontally (Hint: you may have to play around with position: relative and position: absolute to properly position the avatar)
-The name should be centered below the avatar
-The background should be a different colour than the nav and the body
-The background-image should be a transparent pattern. Feel free to use this tool to assist: https://www.transparenttextures.com/ */
 .header-avatar {
   margin-top: 120px;
   height: 400px;
@@ -17,7 +12,21 @@ The background-image should be a transparent pattern. Feel free to use this tool
   top: 40px;
 }
 
-.name{
+.name {
   position: relative;
   top: -20px;
+}
+
+.avatar-image{
+  object-fit: contain;
+}
+
+@media only screen and (min-width: 769px) {
+    .header-avatar {
+      margin-top: 10em;
+      margin-left: 3em;
+      height: 400px;
+      width: 30%;
+      height: 30%;
+  }
 }

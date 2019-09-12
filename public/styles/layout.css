@@ -27,3 +27,12 @@ body {
    margin-left: 5%;
 
  }
+
+ @media only screen and (min-width: 769px) {
+  main {
+    position: absolute;
+    right: 3em;
+    top: 184px;
+    width: 50%;
+  }
+ } 

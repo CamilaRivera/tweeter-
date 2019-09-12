@@ -62,5 +62,5 @@ i {
 
 .text-content {
   overflow-wrap: break-word;
-  word-break: keep-all;
+  word-break: break-word;
 }
