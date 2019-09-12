@@ -11,12 +11,19 @@ jQuery(document).ready(function ($) {
     return `${Math.round((Date.now() - new Date(unixTimestamp)) / (1000 * 60 * 60 * 24))} days ago`;
   };
 
-  const escape =  function(str) {
+  const escape = function (str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
+
+    const newTweetForm = $('.arrow ');
+    newTweetForm.click(function() {
+      $('.new-tweet').slideToggle();
+      $('.tweet-text').focus();
+    });
+  
   /** */
   // loops through tweets
   // calls createTweetElement for each tweet
@@ -27,6 +34,7 @@ jQuery(document).ready(function ($) {
     for (const tweet in tweets) {
       allTweets.push(createTweetElement(tweets[tweet]));
     }
+    allTweets.reverse();
     $('.tweets').append(allTweets);
     $('.tweet-text').val("");
   };
@@ -39,9 +47,9 @@ jQuery(document).ready(function ($) {
           <p class='nickname'>${tweet.user.handle}</p>
           <p><img src=${escape(tweet.user.avatars)} width='42' height='42'>${escape(tweet.user.name)}</p>
         </header>
-        <p>${escape(tweet.content.text)}</p>
+        <p class='text-content'>${escape(tweet.content.text)}</p>
         <footer>
-          <span>${getDaysAgo(escape(tweet.created_at))}</span>
+          <span>${getDaysAgo(tweet.created_at)}</span>
           <p class='icons'><i class='icon-flag'></i><i class='icon-retweet'></i><i class='icon-heart'></i></p>
         </footer>
     </article>`

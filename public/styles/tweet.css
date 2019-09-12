@@ -59,3 +59,8 @@ i {
   -moz-box-shadow: 10px 9px 6px -1px rgba(222,130,31,1);
   box-shadow: 10px 9px 6px -1px rgba(222,130,31,1);
 }
+
+.text-content {
+  overflow-wrap: break-word;
+  word-break: keep-all;
+}

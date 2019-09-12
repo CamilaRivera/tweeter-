@@ -26,3 +26,32 @@ nav {
   position: relative;
   top: 5px;
 }
+
+.arrow {
+  animation: MoveUpDown 1s linear infinite;
+  position: absolute;
+  margin-right: 7rem;
+  right: 0;
+  color: #ff6c00;
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 20px;
+  }
+}
+
+.title-write-tweet{
+  color: white;
+  font-family: 'Source Sans Pro', 'sans serif';
+  position: relative;
+  top: -1rem;
+  
+}
+
+.arrow-pointer {
+  float: right;
+}
