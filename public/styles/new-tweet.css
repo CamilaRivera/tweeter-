@@ -38,3 +38,9 @@ textarea:focus{
 .redCounter {
   color: red;
 }
+
+.error {
+  color: #D8000C;
+  background-color: #FFBABA;
+  display: none;
+}

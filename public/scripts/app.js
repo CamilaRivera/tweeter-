@@ -61,13 +61,16 @@ jQuery(document).ready(function ($) {
   const $form = $('.new-tweet-submission');
   $form.on('submit', function (event) {
     //prevents the normal post event
+    $('.error').hide()
     event.preventDefault();
     if ($('.tweet-text').val().length > 140) {
-      alert('content must be shorter than 140 characters');
+      $('.error').text('❌ content must be shorter than 140 characters');
+      $('.error').slideDown(); 
     }
-    if ($('.tweet-text').val().length === 0) {
-      alert('you must fill this form');
-    } else {
+    else if ($('.tweet-text').val().length === 0) {
+      $('.error').text('❌ you must fill this form');
+      $('.error').slideDown(); 
+    } else  {
       $.ajax({ url: '/tweets', method: 'POST', data: $(this).serialize() })
         .then(
           loadTweets()
