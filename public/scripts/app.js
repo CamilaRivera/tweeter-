@@ -17,10 +17,12 @@ jQuery(document).ready(function ($) {
   // takes return value and appends it to the tweets container
   const renderTweets = function (tweets) {
     let allTweets = [];
+    $('.tweets').empty();
     for (const tweet in tweets) {
       allTweets.push(createTweetElement(tweets[tweet]));
     }
     $('.tweets').append(allTweets);
+    $('.tweet-text').val("");
   };
 
 
@@ -41,23 +43,33 @@ jQuery(document).ready(function ($) {
     return $tweet;
   }
 
-//new tweet submision
+  //new tweet submision
   const $form = $('.new-tweet-submission');
   $form.on('submit', function (event) {
     //prevents the normal post event
     event.preventDefault();
-    $.ajax({ url: '/tweets', method: 'POST', data: $(this).serialize() })
-      .then(
-        $.ajax({ url: '/tweets', method: 'GET' })
-          .then(renderTweets)
-      )
-      .fail(err => {
-        alert('Failed to submit tweet', err);
-      });
+    if ($('.tweet-text').val().length > 140) {
+      alert('content must be shorter than 140 characters');
+    }
+    if ($('.tweet-text').val().length === 0) {
+      alert('you must fill these form');
+    } else {
+      $.ajax({ url: '/tweets', method: 'POST', data: $(this).serialize() })
+        .then(
+          loadTweets()
+        )
+        .fail(err => {
+          alert('Failed to submit tweet', err);
+        });
+    }
   });
 
+  const loadTweets = () => {
+    $.ajax({ url: '/tweets', method: 'GET' })
+      .then(renderTweets);
+  }
 
+  loadTweets();
 
-  renderTweets(data);
 
 });
