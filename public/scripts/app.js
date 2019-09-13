@@ -5,21 +5,22 @@
 
 jQuery(document).ready(function ($) {
 
-  //gets the post submission date
-  function getDaysAgo(unixTimestamp) {
-    return `${Math.round((Date.now() - new Date(unixTimestamp)) / (1000 * 60 * 60 * 24))} days ago`;
+  // Get number of days passed since timestamp
+  const getDaysAgo = function (unixTimestamp) {
+    const days = Math.round((Date.now() - new Date(unixTimestamp)) / (1000 * 60 * 60 * 24));
+    const daysNoun = days > 1 ? 'days' : 'day'; // Handle plural/singular
+    return `${days} ${daysNoun} ago`;
   };
 
-  //escape potential malicious posts
+  //escape potential malicious tweets
   const escape = function (str) {
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
-// hide and show the new tweet section
-  const newTweetForm = $('.arrow ');
-  newTweetForm.click(function () {
+  // hide and show the new tweet section
+  $('.arrow ').click(function () {
     $('.new-tweet').slideToggle();
     $('.tweet-text').focus();
   });
@@ -31,8 +32,8 @@ jQuery(document).ready(function ($) {
   const renderTweets = function (tweets) {
     const allTweets = [];
     $('.tweets').empty();
-    for (const tweet in tweets) {
-      allTweets.push(createTweetElement(tweets[tweet]));
+    for (const tweet of tweets) {
+      allTweets.push(createTweetElement(tweet));
     }
     allTweets.reverse();
     $('.tweets').append(allTweets);
@@ -40,7 +41,6 @@ jQuery(document).ready(function ($) {
     $('.tweet-text').trigger('input');
   };
 
-  //creates tweet element
   const createTweetElement = function (tweet) {
     const $tweet = $(
       `<article class='tweet'>
@@ -56,20 +56,19 @@ jQuery(document).ready(function ($) {
     </article>`
     );
     return $tweet;
-  }
+  };
 
-  //new tweet submision
-  const $form = $('.new-tweet-submission');
-  $form.on('submit', function (event) {
+  // listener on tweet submit
+  $('.new-tweet-submission').on('submit', function (event) {
     //prevents the normal post event
-    $('.error').hide()
+    $('.error').hide();
     event.preventDefault();
     if ($('.tweet-text').val().length > 140) {
-      $('.error').text('❌ content must be shorter than 140 characters');
+      $('.error').text('❌  Tweet content must be shorter than 140 characters');
       $('.error').slideDown();
     }
     else if ($('.tweet-text').val().length === 0) {
-      $('.error').text('❌ you must fill this form');
+      $('.error').text('❌  Your tweet cannot be empty');
       $('.error').slideDown();
     } else {
       $.ajax({ url: '/tweets', method: 'POST', data: $(this).serialize() })
@@ -80,13 +79,27 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  //load tweets
+  // load tweets and render them
   const loadTweets = () => {
     $.ajax({ url: '/tweets', method: 'GET' })
       .then(renderTweets);
   }
 
-  loadTweets();
 
+  //back to top toggle button function
+  $('.back-to-top').click(function () {
+    $("html").animate({ scrollTop: 0 }, "slow");
+  });
+
+  // check if the button is in the upper part of the page
+  $(window).scroll(function () {
+    if (window.scrollY < 400) {
+      $(".back-to-top").fadeOut();
+    } else {
+      $(".back-to-top").fadeIn();
+    }
+  });
+
+  loadTweets();
 
 });

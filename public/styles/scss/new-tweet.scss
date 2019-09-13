@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .new-tweet {
   margin-top: 12px;
   display: none;
@@ -11,29 +13,26 @@ textarea {
   border-bottom: 2px solid #545149;
   height:2em;
   resize: none;
-  
+  &::-webkit-input-placeholder {
+    font-weight: bold;
+  }
+  &:focus{
+    outline: none;
+  }
 }
 
 section span.counter {
   font-weight: bold; 
   float:right;
-  font-family: 'Bungee', 'sans serif';
-
-}
-
-textarea::-webkit-input-placeholder {
-  font-weight: bold;
+  font-family: $logo-font;
 }
 
 .button {
-  background-color: #133491;
+  background-color: $secondary-color;
   color: white;
   border: none;
-  font-family: 'Bungee', 'sans serif';
-}
-
-textarea:focus{
-  outline: none;
+  font-family: $logo-font;
+  cursor: pointer;
 }
 
 .redCounter {
@@ -42,8 +41,17 @@ textarea:focus{
 
 .error {
   color: #D8000C;
-  background-color: #FFBABA;
+  background-color: #ffdada;
+  border: 1px solid red;
   display: none;
   padding: 20px;
   margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 769px) {
+  textarea::-webkit-input-placeholder {
+    font-size: 1.2rem;
+  }
+
 }

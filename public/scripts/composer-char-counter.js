@@ -11,19 +11,6 @@ jQuery(document).ready(function ($) {
     $('.error').slideUp();
   });
 
-  //back to top toggle button function
-  $('.back-to-top').click(function() {
-    $("html").animate({ scrollTop: 0 }, "slow");
-    });
-
-// check if the button is in the upper part of the page
-    $(window).scroll(function() {
-      if(window.scrollY < 400) {
-          $(".back-to-top").fadeOut();
-      } else {
-          $(".back-to-top").fadeIn();
-      }
-  });
 });
 
 
