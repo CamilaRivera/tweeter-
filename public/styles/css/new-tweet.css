@@ -1,0 +1,56 @@
+.new-tweet {
+  margin-top: 12px;
+  display: none;
+}
+
+textarea {
+  margin-top: 40px;
+  background-color: #f4f1ec;
+  border: none;
+  width: 100%;
+  border-bottom: 2px solid #545149;
+  height: 2em;
+  resize: none;
+}
+textarea::-webkit-input-placeholder {
+  font-weight: bold;
+}
+textarea:focus {
+  outline: none;
+}
+
+section span.counter {
+  font-weight: bold;
+  float: right;
+  font-family: "Bungee", "sans serif";
+}
+
+.button {
+  background-color: #4056A1;
+  color: white;
+  border: none;
+  font-family: "Bungee", "sans serif";
+  cursor: pointer;
+}
+
+.redCounter {
+  color: red;
+}
+
+.error {
+  color: #D8000C;
+  background-color: #ffdada;
+  border: 1px solid red;
+  display: none;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 769px) {
+  textarea::-webkit-input-placeholder {
+    font-size: 1.2rem;
+  }
+}
+
+/*# sourceMappingURL=new-tweet.css.map */
